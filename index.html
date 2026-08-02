@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAM Profile Booster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+
+    body {
+      font-family: "Google Sans", system-ui, sans-serif;
+      max-width: 640px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: 1rem;
+      margin: 0 0 1.5rem 0;
+    }
+
+    h2 {
+      font-size: 0.9rem;
+      margin: 0 0 0.75rem 0;
+    }
+
+    p {
+      font-size: 0.85rem;
+      margin: 0 0 1rem 0;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-col {
+      padding: 0.75rem;
+      background: rgba(127, 127, 127, 0.05);
+      border-radius: 6px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+
+    input[type="number"] {
+      width: 5rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    ul#file-list {
+      padding-left: 1.2rem;
+    }
+
+    pre#log {
+      background: rgba(127, 127, 127, 0.1);
+      padding: 0.75rem;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      min-height: 4rem;
+      max-height: 20rem;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🎸 NAM Profile Booster</h1>
+
+  <div class="intro">
+    <div class="intro-col">
+      <h2>What is NAM?</h2>
+      <p>NAM (Neural Amp Modeler) is a guitar amp modeling software that uses a neural network to learn and emulate amplifiers and effects. It's open source and free. NAM profiles are <code>.nam</code> files containing the settings and parameters for these emulations.</p>
+    </div>
+    <div class="intro-col">
+      <h2>What does this do?</h2>
+      <p>NAM profiles carry metadata about loudness, but some readers ignore it, making profiles sound quiet. This tool boosts the output level directly on the neural network weights — supports both legacy (A1) and A2 / SlimmableContainer formats.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <input type="file" id="file-input" accept=".nam" multiple />
+  </div>
+  <ul id="file-list"></ul>
+
+  <div class="row">
+    <label for="db-input">Boost (dB):</label>
+    <input type="number" id="db-input" value="6" step="0.5" />
+    <button id="boost-btn" disabled>Boost &amp; download</button>
+  </div>
+
+  <pre id="log"></pre>
+
+  <script type="module" src="./dist/main.js"></script>
+</body>
+
+</html>
