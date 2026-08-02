@@ -1,0 +1,15 @@
+{
+  "name": "nam-profile-booster-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "concurrently \"tsc --watch\" \"node server.js\""
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.4",
+    "typescript": "^5.5.4"
+  }
+}

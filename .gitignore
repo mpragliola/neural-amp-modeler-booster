@@ -1,0 +1,5 @@
+.claude
+.playwright-mcp
+.remember
+dist
+node_modules
